@@ -5,6 +5,10 @@ The core of the code is from one of the examples of the
 Google Admin-SDK Groups Migration API developer page, and the examples
 of the mailbox python module.
 
+The gluing and tweaking is by Ron Jarrell, Manager for Ecommunications
+Services at Virgina Tech.  You can contact him at jarrell@vt.edu.
+If this helps you, feel free to drop a line, or send a postcard :)
+
 Creates a Google Admin-SDK Groups Migration API service object and
 inserts all mail in an mbox into a group.
 
