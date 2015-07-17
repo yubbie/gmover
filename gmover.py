@@ -25,7 +25,7 @@ except ImportError:
 
 SCOPES = 'https://www.googleapis.com/auth/apps.groups.migration'
 CLIENT_SECRET_FILE = 'client_secret.json'
-APPLICATION_NAME = 'Google Apps Groups Migration API Quickstart'
+APPLICATION_NAME = 'Gmover Google Apps Groups Migration Archive Importer'
 
 
 def get_credentials():
@@ -91,7 +91,8 @@ def main():
     if args.verbose > 0:
         print "Processing " + args.file
     for message in mailbox.mbox(args.file):
-        message['Message-ID'] = '<{0}-{1}-groupmover-{2}'.format(str(random.randrange(10**10)),
+        if not message['Message-ID']:
+            message['Message-ID'] = '<{0}-{1}-groupmover-{2}'.format(str(random.randrange(10**10)),
 			       str(random.randrange(10**10)),
                                                groupId)
         stream = StringIO.StringIO()
