@@ -1,17 +1,19 @@
 import httplib2
 import os
 import mailbox
+import StringIO
+import random
 
+import apiclient
 from apiclient import discovery
+
 import oauth2client
 from oauth2client import client
 from oauth2client import tools
 
-import apiclient
 from email import Utils
 from email import MIMEText
-import StringIO
-import random
+
 
 try:
     import argparse
