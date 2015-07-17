@@ -25,7 +25,7 @@ except ImportError:
 
 SCOPES = 'https://www.googleapis.com/auth/apps.groups.migration'
 CLIENT_SECRET_FILE = 'client_secret.json'
-APPLICATION_NAME = 'Google Apps Groups Migration API Quickstart'
+APPLICATION_NAME = 'Gmover Google Apps Groups Migration Archive Importer'
 
 
 def get_credentials():
