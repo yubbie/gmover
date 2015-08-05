@@ -97,14 +97,20 @@ def main():
             message['Message-ID'] = '<{0}-{1}-groupmover-{2}'.format(str(random.randrange(10**10)),
 			       str(random.randrange(10**10)),
                                                groupId)
+            if args.verbose > 1:
+                print "Creating message id " + message['Message-ID']
         stream = StringIO.StringIO()
         stream.write(message.as_string())
+        if args.verbose > 2:
+            print "Generating payload"
         media = apiclient.http.MediaIoBaseUpload(stream,
                                                  mimetype='message/rfc822')
 
+        if args.verbose > 2:
+            print "Inserting"
         result = service.archive().insert(groupId=groupId,
                                           media_body=media).execute()
-        if result['responseCode'] <> 'SUCCESS':
+        if result['responseCode'] <> 'SUCCESS' or args.verbose > 2:
            print result['responseCode']
 
 if __name__ == '__main__':
