@@ -85,8 +85,11 @@ def main():
 
         if args.verbose > 2:
             print("Inserting")
-        result = service.archive().insert(groupId=groupId,
-                                          media_body=media).execute()
+        try:
+            result = service.archive().insert(groupId=groupId,
+                                              media_body=media).execute()
+        except:
+            print('Exception writing message caught ' + message['Message-ID'])
         if result['responseCode'] <> 'SUCCESS' or args.verbose > 2:
            print(result['responseCode'])
 
